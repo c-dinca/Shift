@@ -1,14 +1,11 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
+pub struct DetectStack{
+    pub node_version: Option<String>,
+    pub packages: Vec<String>,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+pub fn detect_stack() -> DetectStack {
+    DetectStack{
+        node_version: None,
+        packages: vec![],
     }
 }
