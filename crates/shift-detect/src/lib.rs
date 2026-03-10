@@ -2,10 +2,17 @@ use std::fs;
 use serde::Deserialize;
 use std::collections::HashMap;
 
+
+#[derive(Debug)]
+pub struct Package{
+    pub name: String,
+    pub version: String,
+}
+
 #[derive(Debug)]
 pub struct DetectStack{
     pub node_version: Option<String>,
-    pub packages: Vec<String>,
+    pub packages: Vec<Package>,
 }
 
 #[derive(Deserialize)]
@@ -38,8 +45,8 @@ pub fn detect(path: String) -> Result<DetectStack, String> {
 
     let packages = pkg.dependencies
         .unwrap_or_default()
-        .keys()
-        .cloned()
+        .into_iter()
+        .map(|(name, version)| Package{name, version})
         .collect();
 
     Ok(DetectStack{
