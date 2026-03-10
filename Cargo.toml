@@ -1,0 +1,13 @@
+[workspace]
+members = [
+    "crates/shift-cli",
+    "crates/shift-core",
+    "crates/shift-detect",
+    "crates/shift-registry",
+    "crates/shift-codemod",
+    "crates/shift-diff",
+    "crates/shift-tui",
+    "crates/shift-snapshot",
+    "crates/shift-notify",
+]
+resolver = "2"
