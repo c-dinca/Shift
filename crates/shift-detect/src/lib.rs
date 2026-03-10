@@ -2,6 +2,7 @@ use std::fs;
 use serde::Deserialize;
 use std::collections::HashMap;
 
+#[derive(Debug)]
 pub struct DetectStack{
     pub node_version: Option<String>,
     pub packages: Vec<String>,
